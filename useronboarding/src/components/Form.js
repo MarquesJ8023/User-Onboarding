@@ -4,7 +4,7 @@ import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
 
-    const UserForm = ({ errors, touched, values, isSubmitting, status }) => {
+    const UserForm = ({ errors, touched, values, status, handleSubmit }) => {
             const [
                 user, 
                 setUser
@@ -19,7 +19,7 @@ import * as Yup from 'yup';
                 <div className="user-form">
               <h1>User Form</h1>
               <Form>
-      
+
                 <Field type="text" name="name" placeholder="Name" />
                 {touched.name && errors.name && <p className="error">{errors.name}</p>}
         
@@ -59,18 +59,17 @@ import * as Yup from 'yup';
                 };
 
       const FormikUserForm = withFormik({
-        mapPropsToValues({ name, email, password, TOS, submit }) {
+        mapPropsToValues({ name, email, password, TOS}) {
           return {
             name: name || '',
             email: email || '',
             password: password || '',
             TOS: TOS || '',
-            submit: submit || ''
           };
         },
       
         validationSchema: Yup.object().shape({
-          Name: Yup.string().required(),
+          name: Yup.string().required(),
           email: Yup.string()
             .email("Email not valid")
             .required("Email is required"),
