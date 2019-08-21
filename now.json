@@ -1,8 +1,8 @@
 {
     "version": 2,
-    "name": "MarquesJ8023/User-Onboarding",
-    "builds": [{ "src": "MarquesJ8023/User-Onboarding/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "name": "User-Onboarding",
+    "builds": [{ "src": "User-Onboarding/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
     "routes": [
-        { "src": "/(.*)", "dest": "MarquesJ8023/User-Onboarding/$1" }
+        { "src": "/(.*)", "dest": "User-Onboarding/$1" }
     ]
 }
